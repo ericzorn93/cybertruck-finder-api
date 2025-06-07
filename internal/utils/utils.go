@@ -24,7 +24,7 @@ func FindCyberTrucks() (models.CyberTruckInventoryResponse, error) {
 	tr := &http.Transport{
 		ForceAttemptHTTP2: false,
 		TLSClientConfig: &tls.Config{
-			InsecureSkipVerify: false, // Set to true only for testing/debugging
+			InsecureSkipVerify: true, // Set to true only for testing/debugging
 		},
 	}
 
