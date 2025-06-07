@@ -28,12 +28,6 @@ func FindCyberTrucks() (models.CyberTruckInventoryResponse, error) {
 		},
 	}
 
-	// Create an HTTP client using our custom transport.
-	client := &http.Client{
-		Transport: tr,
-		Timeout:   20 * time.Second, // Set a reasonable timeout for the request.
-	}
-
 	// Create a new GET request.
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -51,6 +45,12 @@ func FindCyberTrucks() (models.CyberTruckInventoryResponse, error) {
 	req.Header.Set("Accept-Encoding", "gzip, deflate, br") // Accept compressed responses.
 
 	logger.Logger.Info("Fetching Tesla Cybertruck inventory data (forcing HTTP/1.1)")
+
+	// Create an HTTP client using our custom transport.
+	client := &http.Client{
+		Transport: tr,
+		Timeout:   20 * time.Second, // Set a reasonable timeout for the request.
+	}
 
 	// Execute the request.
 	resp, err := client.Do(req)
