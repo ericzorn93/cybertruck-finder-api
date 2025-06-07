@@ -44,106 +44,71 @@ type CyberTruckInventoryResponse struct {
 }
 
 type Results struct {
-	Exact              []Truck `json:"exact"`
-	Approximate        []Truck `json:"approximate"`
-	ApproximateOutside []Truck `json:"approximateOutside"`
+	Exact       []Truck `json:"exact"`
+	Approximate []Truck `json:"approximate"`
+	// ApproximateOutside []Truck `json:"approximateOutside"`
 }
 
 type Truck struct {
-	InTransit                   bool                   `json:"inTransit"`
-	CashDetails                 CashDetails            `json:"cashDetails"`
-	CountryCode                 string                 `json:"countryCode"`
-	CountryHasVehicleAtLocation bool                   `json:"countryHasVehicleAtLocation"`
-	CountryOfOrigin             string                 `json:"countryOfOrigin"`
-	CurrencyCode                string                 `json:"currencyCode"`
-	CurrencyCodes               string                 `json:"currencyCodes"`
-	Decor                       interface{}            `json:"decor"`
-	DamageDisclosure            bool                   `json:"damageDisclosure"`
-	DamageDisclosureStatus      *string                `json:"damageDisclosureStatus"`
-	DestinationHandlingFee      int64                  `json:"destinationHandlingFee"`
-	Discount                    int64                  `json:"discount"`
-	FactoryCode                 string                 `json:"factoryCode"`
-	FederalIncentives           FederalIncentives      `json:"federalIncentives"`
-	FinplatDetails              FinplatDetails         `json:"finplatDetails"`
-	FixedAssets                 bool                   `json:"fixedAssets"`
-	FlexibleOptionsData         []FlexibleOptionsDatum `json:"flexibleOptionsData"`
-	HasDamagePhotos             bool                   `json:"hasDamagePhotos"`
-	Hash                        string                 `json:"hash"`
-	Interior                    []Color                `json:"interior"`
-
-	// InspectionDocumentGUID         interface{}            `json:"inspectionDocumentGuid"`
-	// InventoryPrice                 int64                  `json:"inventoryPrice"`
-	// IsChargingConnectorIncluded    bool                   `json:"isChargingConnectorIncluded"`
-	// IsDemo                         bool                   `json:"isDemo"`
-	// IsFactoryGated                 bool                   `json:"isFactoryGated"`
-	// IsFederalCreditEligible        bool                   `json:"isFederalCreditEligible"`
-	// IsInTransit                    bool                   `json:"isInTransit"`
-	// IsLegacy                       bool                   `json:"isLegacy"`
-	// IsPreProdWithDisclaimer        bool                   `json:"isPreProdWithDisclaimer"`
-	// Language                       string                 `json:"language"`
-	// Languages                      []string               `json:"languages"`
-	// LeaseCountries                 []string               `json:"leaseCountries"`
-	// LexiconDefaultOptions          []FlexibleOptionsDatum `json:"lexiconDefaultOptions"`
-	// ListingType                    string                 `json:"listingType"`
-	// ListingTypes                   string                 `json:"listingTypes"`
-	// LoanCountries                  []string               `json:"loanCountries"`
-	// Model                          string                 `json:"model"`
-	// Odometer                       int64                  `json:"odometer"`
-	// OdometerType                   string                 `json:"odometerType"`
-	// OptionCodeData                 []OptionCodeDatum      `json:"optionCodeData"`
-	// OptionCodeList                 string                 `json:"optionCodeList"`
-	// OptionCodeListDisplayOnly      interface{}            `json:"optionCodeListDisplayOnly"`
-	// OptionCodePricing              []OptionCodePricing    `json:"optionCodePricing"`
-	// OrderFee                       interface{}            `json:"orderFee"`
-	// OriginalDeliveryDate           interface{}            `json:"originalDeliveryDate"`
-	// OriginalInCustomerGarageDate   interface{}            `json:"originalInCustomerGarageDate"`
-	// Paint                          interface{}            `json:"paint"`
-	// PreviouslyRegistered           bool                   `json:"previouslyRegistered"`
-	// Price                          int64                  `json:"price"`
-	// PurchasePrice                  int64                  `json:"purchasePrice"`
-	// Roof                           interface{}            `json:"roof"`
-	// RegistrationCount              int64                  `json:"registrationCount"`
-	// Rewards                        []interface{}          `json:"rewards"`
-	// SteeringWheel                  interface{}            `json:"steeringWheel"`
-	// Trim                           []string               `json:"trim"`
-	// TaxScheme                      interface{}            `json:"taxScheme"`
-	// ThirdPartyHistoryURL           interface{}            `json:"thirdPartyHistoryUrl"`
-	// TitleStatus                    string                 `json:"titleStatus"`
-	// TitleSubtype                   []string               `json:"titleSubtype"`
-	// TotalPrice                     int64                  `json:"totalPrice"`
-	// TradeInType                    interface{}            `json:"tradeInType"`
-	// TransportFees                  TransportFees          `json:"transportFees"`
-	// TrimCode                       string                 `json:"trimCode"`
-	// TrimName                       string                 `json:"trimName"`
-	// TrimVariantCode                string                 `json:"trimVariantCode"`
-	// Trt                            int64                  `json:"trt"`
-	// Vin                            string                 `json:"vin"`
-	// VehicleHistory                 interface{}            `json:"vehicleHistory"`
-	// Wheels                         []string               `json:"wheels"`
-	// WarrantyBatteryExpDate         time.Time              `json:"warrantyBatteryExpDate"`
-	// WarrantyBatteryIsExpired       bool                   `json:"warrantyBatteryIsExpired"`
-	// WarrantyBatteryMile            int64                  `json:"warrantyBatteryMile"`
-	// WarrantyBatteryYear            int64                  `json:"warrantyBatteryYear"`
-	// WarrantyData                   WarrantyData           `json:"warrantyData"`
-	// WarrantyDriveUnitExpDate       time.Time              `json:"warrantyDriveUnitExpDate"`
-	// WarrantyDriveUnitMile          int64                  `json:"warrantyDriveUnitMile"`
-	// WarrantyDriveUnitYear          int64                  `json:"warrantyDriveUnitYear"`
-	// WarrantyMile                   int64                  `json:"warrantyMile"`
-	// WarrantyVehicleExpDate         time.Time              `json:"warrantyVehicleExpDate"`
-	// WarrantyVehicleIsExpired       bool                   `json:"warrantyVehicleIsExpired"`
-	// WarrantyYear                   int64                  `json:"warrantyYear"`
-	// Year                           int64                  `json:"year"`
-	// AlternateCurrency              []interface{}          `json:"alternateCurrency"`
-	// UsedVehicleLimitedWarrantyMile int64                  `json:"usedVehicleLimitedWarrantyMile"`
-	// UsedVehicleLimitedWarrantyYear int64                  `json:"usedVehicleLimitedWarrantyYear"`
-	// OdometerTypeShort              string                 `json:"odometerTypeShort"`
-	// DeliveryDateDisplay            bool                   `json:"deliveryDateDisplay"`
-	// TransportationFee              int64                  `json:"transportationFee"`
-	// OptionCodeSpecs                OptionCodeSpecs        `json:"optionCodeSpecs"`
-	// CompositorViewsCustom          CompositorViewsCustom  `json:"compositorViewsCustom"`
-	// IsRangeStandard                bool                   `json:"isRangeStandard"`
-	// HasMarketingOptions            bool                   `json:"hasMarketingOptions"`
-	// FirstRegistrationDate          interface{}            `json:"firstRegistrationDate"`
+	InTransit                      bool                   `json:"inTransit"`
+	CashDetails                    CashDetails            `json:"cashDetails"`
+	CountryCode                    string                 `json:"countryCode"`
+	CountryHasVehicleAtLocation    bool                   `json:"countryHasVehicleAtLocation"`
+	CountryOfOrigin                string                 `json:"countryOfOrigin"`
+	CurrencyCode                   string                 `json:"currencyCode"`
+	CurrencyCodes                  string                 `json:"currencyCodes"`
+	DamageDisclosure               bool                   `json:"damageDisclosure"`
+	DamageDisclosureStatus         *string                `json:"damageDisclosureStatus"`
+	DestinationHandlingFee         int64                  `json:"destinationHandlingFee"`
+	Discount                       int64                  `json:"discount"`
+	FactoryCode                    string                 `json:"factoryCode"`
+	FederalIncentives              FederalIncentives      `json:"federalIncentives"`
+	FinplatDetails                 FinplatDetails         `json:"finplatDetails"`
+	FixedAssets                    bool                   `json:"fixedAssets"`
+	FlexibleOptionsData            []FlexibleOptionsDatum `json:"flexibleOptionsData"`
+	HasDamagePhotos                bool                   `json:"hasDamagePhotos"`
+	Hash                           string                 `json:"hash"`
+	Interior                       []Color                `json:"interior"`
+	InventoryPrice                 int64                  `json:"inventoryPrice"`
+	IsDemo                         bool                   `json:"isDemo"`
+	IsFactoryGated                 bool                   `json:"isFactoryGated"`
+	IsFederalCreditEligible        bool                   `json:"isFederalCreditEligible"`
+	IsInTransit                    bool                   `json:"isInTransit"`
+	IsLegacy                       bool                   `json:"isLegacy"`
+	LeaseCountries                 []string               `json:"leaseCountries"`
+	LoanCountries                  []string               `json:"loanCountries"`
+	Model                          string                 `json:"model"`
+	Odometer                       int64                  `json:"odometer"`
+	OdometerType                   string                 `json:"odometerType"`
+	Price                          int64                  `json:"price"`
+	PurchasePrice                  int64                  `json:"purchasePrice"`
+	Trim                           []string               `json:"trim"`
+	TitleStatus                    string                 `json:"titleStatus"`
+	TitleSubtype                   []string               `json:"titleSubtype"`
+	TotalPrice                     int64                  `json:"totalPrice"`
+	TrimCode                       string                 `json:"trimCode"`
+	TrimName                       string                 `json:"trimName"`
+	TrimVariantCode                string                 `json:"trimVariantCode"`
+	Trt                            int64                  `json:"trt"`
+	Vin                            string                 `json:"vin"`
+	Wheels                         []string               `json:"wheels"`
+	WarrantyBatteryExpDate         time.Time              `json:"warrantyBatteryExpDate"`
+	WarrantyBatteryIsExpired       bool                   `json:"warrantyBatteryIsExpired"`
+	WarrantyBatteryMile            int64                  `json:"warrantyBatteryMile"`
+	WarrantyBatteryYear            int64                  `json:"warrantyBatteryYear"`
+	WarrantyData                   WarrantyData           `json:"warrantyData"`
+	WarrantyDriveUnitExpDate       time.Time              `json:"warrantyDriveUnitExpDate"`
+	WarrantyDriveUnitMile          int64                  `json:"warrantyDriveUnitMile"`
+	WarrantyDriveUnitYear          int64                  `json:"warrantyDriveUnitYear"`
+	WarrantyMile                   int64                  `json:"warrantyMile"`
+	WarrantyVehicleExpDate         time.Time              `json:"warrantyVehicleExpDate"`
+	WarrantyVehicleIsExpired       bool                   `json:"warrantyVehicleIsExpired"`
+	WarrantyYear                   int64                  `json:"warrantyYear"`
+	Year                           int64                  `json:"year"`
+	UsedVehicleLimitedWarrantyMile int64                  `json:"usedVehicleLimitedWarrantyMile"`
+	UsedVehicleLimitedWarrantyYear int64                  `json:"usedVehicleLimitedWarrantyYear"`
+	TransportationFee              int64                  `json:"transportationFee"`
+	IsRangeStandard                bool                   `json:"isRangeStandard"`
 }
 
 type CashDetails struct {
@@ -152,28 +117,6 @@ type CashDetails struct {
 
 type Cash struct {
 	InventoryPriceWithoutDiscounts interface{} `json:"inventoryPriceWithoutDiscounts"`
-}
-
-type CompositorViews struct {
-	FrontView    string `json:"frontView"`
-	SideView     string `json:"sideView"`
-	InteriorView string `json:"interiorView"`
-}
-
-type CompositorViewsCustom struct {
-	IsProductWithCustomViews bool         `json:"isProductWithCustomViews"`
-	ExternalZoom             ExternalZoom `json:"externalZoom"`
-	ExternalCrop             ExternalCrop `json:"externalCrop"`
-}
-
-type ExternalCrop struct {
-	Order  string `json:"order"`
-	Search string `json:"search"`
-}
-
-type ExternalZoom struct {
-	Order  int64 `json:"order"`
-	Search int64 `json:"search"`
 }
 
 type FederalIncentives struct {
