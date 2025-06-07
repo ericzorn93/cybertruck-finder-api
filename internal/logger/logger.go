@@ -10,5 +10,9 @@ import (
 var Logger *slog.Logger
 
 func init() {
-	Logger = slog.New(slog.NewJSONHandler(os.Stdout, nil))
+	opts := &slog.HandlerOptions{
+		Level: slog.LevelDebug, // Set minimum level to debug
+	}
+
+	Logger = slog.New(slog.NewJSONHandler(os.Stdout, opts))
 }
