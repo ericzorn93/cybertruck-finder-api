@@ -49,7 +49,7 @@ func FindCyberTrucks() (models.CyberTruckInventoryResponse, error) {
 	// Create an HTTP client using our custom transport.
 	client := &http.Client{
 		Transport: tr,
-		Timeout:   2 * time.Minute, // Set a reasonable timeout for the request.
+		Timeout:   1 * time.Minute, // Set a reasonable timeout for the request.
 	}
 
 	// Execute the request.

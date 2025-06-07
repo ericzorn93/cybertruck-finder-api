@@ -1,4 +1,4 @@
-FROM golang:1.24-bookworm AS builder
+FROM golang:1.24-alpine AS builder
 
 WORKDIR /usr/src/app
 COPY go.mod go.sum ./
@@ -7,9 +7,9 @@ COPY . .
 RUN go build -v -o /server ./cmd/main.go
 
 
-FROM debian:bookworm
+FROM alpine:latest
 
-ENV GODEBUG=http2client=0
+# ENV GODEBUG=http2client=0
 COPY --from=builder /server /usr/local/bin
 EXPOSE 8080
 CMD ["server"]
