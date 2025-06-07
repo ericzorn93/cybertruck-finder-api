@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -22,6 +23,9 @@ func FindCyberTrucks() (models.CyberTruckInventoryResponse, error) {
 	// This applies to both HTTP and HTTPS connections.
 	tr := &http.Transport{
 		ForceAttemptHTTP2: false,
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: false, // Set to true only for testing/debugging
+		},
 	}
 
 	// Create an HTTP client using our custom transport.
