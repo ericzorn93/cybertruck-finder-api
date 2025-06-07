@@ -9,7 +9,7 @@ RUN go build -v -o /server ./cmd/main.go
 
 FROM alpine:latest
 
-# ENV GODEBUG=http2client=0
+ENV GODEBUG=http2client=0
 COPY --from=builder /server /usr/local/bin
 EXPOSE 8080
 CMD ["server"]
