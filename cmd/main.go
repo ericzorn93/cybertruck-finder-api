@@ -15,10 +15,7 @@ import (
 )
 
 func main() {
-	if err := godotenv.Load(); err != nil {
-		logger.Logger.Error("Error loading .env file")
-		os.Exit(1)
-	}
+	godotenv.Load()
 
 	logger.Logger.Debug(
 		"Twilio Info",
