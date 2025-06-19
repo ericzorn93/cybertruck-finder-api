@@ -29,7 +29,7 @@ func main() {
 	http.HandleFunc("GET /cybertrucks", func(w http.ResponseWriter, r *http.Request) {
 		res, err := utils.FindCyberTrucks()
 		if err != nil {
-			http.Error(w, "Failed to fetch Cybertruck data", http.StatusInternalServerError)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
