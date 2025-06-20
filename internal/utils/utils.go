@@ -10,6 +10,7 @@ import (
 
 	"github.com/ericzorn93/cybertruck-finder-api/internal/logger"
 	"github.com/ericzorn93/cybertruck-finder-api/internal/models"
+	"github.com/google/uuid"
 )
 
 // FindCyberTrucks fetches Tesla Cybertruck inventory data from the Tesla API.
@@ -36,7 +37,8 @@ func FindCyberTrucks() (models.CyberTruckInventoryResponse, error) {
 	}
 
 	// Add standard headers to make the request appear more like a browser's.
-	req.Header.Set("User-Agent", "PostmanRuntime/7.44.0")                                                                                                                    // Set a common User-Agent.
+	req.Header.Set("User-Agent", "PostmanRuntime/7.44.1")
+	req.Header.Set("Postman-Token", uuid.New().String())                                                                                                                     // Add a Random Postman Token                                                                                                       // Set a common User-Agent.
 	req.Header.Set("Accept", "application/json")                                                                                                                             // Request JSON content specifically.
 	req.Header.Set("Accept", "*/*")                                                                                                                                          // Accept all content types.
 	req.Header.Set("Referer", "https://www.tesla.com/inventory/new/ct?TRIM=CTAWD&WHEELS=CYBER_WHEELS&INTERIOR=GREY&arrangeby=savings&zip=07675&range=100&PaymentType=lease") // Set a referer to mimic browser behavior.
