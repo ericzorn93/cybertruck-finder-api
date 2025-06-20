@@ -10,6 +10,9 @@ RUN go build -tags netgo -ldflags '-s -w' -o /server ./cmd/main.go
 FROM alpine:latest
 
 ENV GODEBUG=http2client=0
+# install ca-certificates for HTTPS support
+RUN apk add --no-cache ca-certificates curl git
+RUN update-ca-certificates
 COPY --from=builder /server /usr/local/bin
 EXPOSE 8080
 CMD ["server"]
